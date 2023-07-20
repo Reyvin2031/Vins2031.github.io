@@ -1,0 +1,53 @@
+/* loader.css */
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1; /* Initially set the opacity to 1 */
+    transition: opacity 0.5s ease-in-out; /* Add a smooth transition effect */
+}
+
+.loader-inner {
+    text-align: center;
+}
+
+.word {
+    opacity: 0;
+    font-size: 3rem;
+    animation: pop-up 0.5s ease-in-out forwards;
+    animation-delay: 0.2s;
+    color: white; /* Set the text color to white */
+    font-weight: bold; /* Set the font weight to bold */
+    font-family: 'Poppins', sans-serif; /* Set the font to Poppins */
+}
+@keyframes slideOutBlur {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0); /* No blur at the start */
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+        filter: blur(8px); /* Apply blur at the end of the animation */
+    }
+}
+
+.preloader.hide {
+    opacity: 0; /* Set opacity to 0 when hiding */
+    pointer-events: none; /* Disable pointer events when hidden */
+    animation: slideOutBlur 0.5s ease-in-out; /* Add slide rollout exit animation with blur */
+}
+
+body.loading {
+    overflow: hidden;
+  }
+  
